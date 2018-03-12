@@ -1,0 +1,11 @@
+/*
+** EPITECH PROJECT, 2018
+** lemin
+** File description:
+** find_way.c
+*/
+
+int	find_way(room_s *room)
+{
+
+}
