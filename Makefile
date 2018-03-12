@@ -29,6 +29,7 @@ SRCS		=	tools/my_strncmp.c		\
 			tools/my_int_to_str.c		\
 			tools/my_revstr.c		\
 			tools/my_strcpy.c		\
+			tools/my_str_isnum.c		\
 			tools/my_realloc_strcat.c	\
 			tools/my_put_nbr.c		\
 			tools/my_putchar.c		\
