@@ -7,5 +7,6 @@
 
 typedef struct room_struct {
 	int nb;
+	int nb_way;
 	int *way;
 } room_s;
