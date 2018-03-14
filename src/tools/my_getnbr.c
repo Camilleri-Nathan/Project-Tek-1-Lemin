@@ -5,8 +5,6 @@
 ** By Camilleri Nathan
 */
 
-#include "tetris.h"
-
 int	condition_my_getnbr(char const *str, int index, char sign)
 {
 	if (str[index] == '-')

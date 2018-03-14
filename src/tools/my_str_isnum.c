@@ -6,7 +6,6 @@
 */
 
 #include <unistd.h>
-#include "my.h"
 
 int	my_str_isnum(char const *str)
 {

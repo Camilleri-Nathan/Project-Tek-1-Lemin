@@ -6,7 +6,6 @@
 */
 
 #include <stdlib.h>
-#include "tetris.h"
 
 char	*my_int_to_str(int nbr, char str[10])
 {

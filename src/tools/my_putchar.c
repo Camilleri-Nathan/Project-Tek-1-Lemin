@@ -5,7 +5,6 @@
 ** By Camilleri Nathan
 */
 
-#include "tetris.h"
 #include <unistd.h>
 
 void	my_putchar(char c)

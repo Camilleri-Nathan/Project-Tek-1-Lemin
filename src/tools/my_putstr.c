@@ -6,7 +6,7 @@
 */
 
 #include <unistd.h>
-#include "tetris.h"
+#include "tools_lemin.h"
 
 void	my_putstr(int out, char const *str)
 {

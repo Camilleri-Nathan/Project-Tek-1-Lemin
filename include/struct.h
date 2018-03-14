@@ -6,7 +6,8 @@
 */
 
 typedef struct room_struct {
-	int nb;
+	char *name;
 	int nb_way;
-	int *way;
+	char **way;
+	struct room_struct *next;
 } room_s;

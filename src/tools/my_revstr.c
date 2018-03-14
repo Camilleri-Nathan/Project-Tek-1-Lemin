@@ -5,7 +5,6 @@
 ** By Camilleri Nathan
 */
 
-#include "tetris.h"
 
 char	*my_revstr(char *str)
 {

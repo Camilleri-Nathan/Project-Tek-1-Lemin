@@ -5,8 +5,10 @@
 ** By Camilleri Nathan
 */
 
-#include "tetris.h"
 #include <unistd.h>
+#include "tools_lemin.h"
+
+void	my_put_nbr(int nb);
 
 int	condition_put_nbr(int nb)
 {

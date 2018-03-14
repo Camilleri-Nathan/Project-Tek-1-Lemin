@@ -8,8 +8,8 @@
 #ifndef	TOOLS_LEMIN_H_
 #define	TOOLS_LEMIN_H_
 
-#define	SUCCESS			0
-#define	ERROR			84
-#define	ERR_NULL		NULL
+int	my_strlen(char const *str);
+char	*my_strcpy(char *dest, char const *src);
+void	my_putchar(char c);
 
 #endif		/* TOOLS_LEMIN_H_ */

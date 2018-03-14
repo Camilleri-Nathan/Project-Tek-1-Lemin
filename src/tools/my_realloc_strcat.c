@@ -5,8 +5,8 @@
 ** By Camilleri Nathan
 */
 
-#include "tetris.h"
 #include <stdlib.h>
+#include "tools_lemin.h"
 
 char	*my_realloc_strcat(char *dest, char *src)
 {

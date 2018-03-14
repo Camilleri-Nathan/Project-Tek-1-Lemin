@@ -25,7 +25,6 @@ SRCS		=	tools/my_strncmp.c		\
 			tools/my_strlen.c		\
 			tools/get_next_line.c		\
 			tools/my_getnbr.c		\
-			tools/useful.c			\
 			tools/my_int_to_str.c		\
 			tools/my_revstr.c		\
 			tools/my_strcpy.c		\
@@ -33,6 +32,8 @@ SRCS		=	tools/my_strncmp.c		\
 			tools/my_realloc_strcat.c	\
 			tools/my_put_nbr.c		\
 			tools/my_putchar.c		\
+			init/init_room.c		\
+			init/take_value.c		\
 			main.c
 
 DEBUG		=	no
