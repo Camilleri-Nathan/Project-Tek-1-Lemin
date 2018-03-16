@@ -22,7 +22,10 @@ int	set_room(room_s **room, char *file_name)
 	line = get_next_line(file);
 	if (line[0] == '#')
 		(void)ants;
-	add_room(room, line);
+	else if (line[0] == '#' && line[1] == '#')
+		(void)ants;
+	else
+		add_room(room, line);
 	close(file);
 	return (0);
 }
@@ -35,7 +38,6 @@ int	add_room(room_s **room, char *line)
 	buff = malloc(sizeof(room_s));
 	*buff->name = *name;
 	buff->nb_way = 0;
-	buff->way = NULL;
 	buff->next = *room;
 	*room = buff;
 	return (0);

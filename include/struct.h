@@ -8,6 +8,5 @@
 typedef struct room_struct {
 	char *name;
 	int nb_way;
-	char **way;
 	struct room_struct *next;
 } room_s;
