@@ -8,25 +8,28 @@
 #include "struct.h"
 #include "init_lemin.h"
 #include "get_next_line.h"
+#include "tools_lemin.h"
 #include <stdlib.h>
 #include <fcntl.h>
 #include <unistd.h>
+#include <stdio.h>
 
-int	set_room(room_s **room, char *file_name)
+int	set_room(room_s **room)
 {
-	int file;
 	int ants;
 	char *line = NULL;
 
-	file = open(file_name, O_RDONLY);
-	line = get_next_line(file);
-	if (line[0] == '#')
-		(void)ants;
-	else if (line[0] == '#' && line[1] == '#')
-		(void)ants;
-	else
-		add_room(room, line);
-	close(file);
+	ants = set_ants();
+	line = get_next_line(0);
+	while (line != NULL) {
+		if (line[0] == '#')
+			ants = ants; // action
+		else if (find_arrow(line))
+			ants = ants; // make path
+		else if (line[0] != '#')
+			add_room(room, line);
+		line = get_next_line(0);
+	}
 	return (0);
 }
 
@@ -36,9 +39,21 @@ int	add_room(room_s **room, char *line)
 	char *name = take_name(line);
 
 	buff = malloc(sizeof(room_s));
-	*buff->name = *name;
+	buff->name = name;
 	buff->nb_way = 0;
-	buff->next = *room;
+	buff->next = malloc(sizeof(room_s) * 2);
+	buff->next[0] = *room;
 	*room = buff;
 	return (0);
+}
+
+int	set_ants(void)
+{
+	char *line = NULL;
+
+	while (1) {
+		line = get_next_line(0);
+		if (line[0] != '#')
+			return (my_getnbr(line));
+	}
 }

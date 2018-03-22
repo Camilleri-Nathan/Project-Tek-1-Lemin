@@ -11,5 +11,7 @@
 int	my_strlen(char const *str);
 char	*my_strcpy(char *dest, char const *src);
 void	my_putchar(char c);
+int	my_getnbr(char *str);
+int	find_arrow(char *str);
 
 #endif		/* TOOLS_LEMIN_H_ */

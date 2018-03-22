@@ -14,6 +14,6 @@ int	main()
 	room_s *room;
 
 	room = NULL;
-	set_room(&room, "asset/map007");
+	set_room(&room);
 	return (0);
 }
