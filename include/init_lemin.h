@@ -10,7 +10,7 @@
 
 // ___ init_room.c ___
 
-int	set_room(room_s **room);
+int	set_room(room_s **room, int * ants, char *start, char *end);
 int	add_room(room_s **room, char *line);
 int	set_ants(void);
 

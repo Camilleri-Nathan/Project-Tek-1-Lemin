@@ -14,23 +14,28 @@
 #include <unistd.h>
 #include <stdio.h>
 
-int	set_room(room_s **room)
+int	set_room(room_s **room, int *ants, char *start, char *end)
 {
 	int ants;
 	char *line = NULL;
 
-	ants = set_ants();
+	*ants = set_ants();
 	line = get_next_line(0);
 	while (line != NULL) {
 		if (line[0] == '#')
-			ants = ants; // action
+			set_point(room, start, end);
 		else if (find_arrow(line))
-			ants = ants; // make path
+			*ants = *ants; // make path
 		else if (line[0] != '#')
 			add_room(room, line);
 		line = get_next_line(0);
 	}
 	return (0);
+}
+
+void	set_point(room_s **room, char *start, char *end)
+{
+	
 }
 
 int	add_room(room_s **room, char *line)

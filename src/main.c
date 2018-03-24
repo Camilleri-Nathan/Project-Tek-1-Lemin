@@ -12,8 +12,11 @@
 int	main()
 {
 	room_s *room;
-
+	int ants = 0;
+	char *start = NULL;
+	char *end = NULL;
+	
 	room = NULL;
-	set_room(&room);
+	set_room(&room, &ants, start, end);
 	return (0);
 }
