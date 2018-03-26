@@ -14,28 +14,54 @@
 #include <unistd.h>
 #include <stdio.h>
 
-int	set_room(room_s **room, int *ants, char *start, char *end)
+int	set_room(room_s **room, info_s *info)
 {
-	int ants;
+	room_s *copy;
 	char *line = NULL;
 
-	*ants = set_ants();
+	copy = NULL;
+	info->ants = set_ants();
 	line = get_next_line(0);
 	while (line != NULL) {
 		if (line[0] == '#')
-			set_point(room, start, end);
+			set_point(&copy, &info->start, &info->end, line);
 		else if (find_arrow(line))
-			*ants = *ants; // make path
+			save_path(info, line);
 		else if (line[0] != '#')
-			add_room(room, line);
+			add_room(&copy, line);
 		line = get_next_line(0);
 	}
+	link_path(room, &copy, info);
 	return (0);
 }
 
-void	set_point(room_s **room, char *start, char *end)
+void	set_point(room_s **room, char **start, char **end, char *line)
 {
-	
+	if (line[0] == '#' && line[1] == '#') {
+		if (my_strncmp(line, "##start", 8)) {
+			*start = fill_point(room);
+		}
+		else if (my_strncmp(line, "##end", 6)) {
+			*end = fill_point(room);
+		}
+	}
+}
+
+char	*fill_point(room_s **room)
+{
+	char *line = NULL;
+	char *point = NULL;
+	int carac = 0;
+
+	line = get_next_line(0);
+	add_room(room, line);
+	point = malloc(sizeof(char) * ((my_strlen(take_name(line))) + 1));
+	while (line[carac] != ' ' && line[carac] != '\0') {
+		point[carac] = line[carac];
+		carac += 1;
+	}
+	point[carac] = '\0';
+	return (point);
 }
 
 int	add_room(room_s **room, char *line)

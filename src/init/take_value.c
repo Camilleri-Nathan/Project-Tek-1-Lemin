@@ -14,12 +14,12 @@ char	*take_name(char *line)
 	int carac = 0;
 	char *name = NULL;
 
-	while (line[carac] != ' ') {
+	while (line[carac] != ' ' && line[carac] != '\0') {
 		carac += 1;
 	}
 	name = malloc(sizeof(char) * (carac + 1));
 	carac = 0;
-	while (line[carac] != ' ') {
+	while (line[carac] != ' ' && line[carac] != '\0') {
 		name[carac] = line[carac];
 		carac += 1;
 	}

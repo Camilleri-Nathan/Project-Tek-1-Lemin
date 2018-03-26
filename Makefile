@@ -35,6 +35,8 @@ SRCS		=	tools/my_strncmp.c		\
 			tools/useful.c			\
 			init/init_room.c		\
 			init/take_value.c		\
+			init/make_path.c		\
+			init/set_path.c			\
 			main.c
 
 DEBUG		=	no

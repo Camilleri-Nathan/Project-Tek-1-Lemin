@@ -10,3 +10,10 @@ typedef struct room_struct {
 	int nb_way;
 	struct room_struct **next;
 } room_s;
+
+typedef struct info_struct {
+	char **path;
+	char *start;
+	char *end;
+	int ants;
+} info_s;
