@@ -22,6 +22,8 @@ int	set_room(room_s **room, info_s *info)
 	copy = NULL;
 	info->ants = set_ants();
 	line = get_next_line(0);
+	if (line == NULL)
+		return (84);
 	while (line != NULL) {
 		if (line[0] == '#')
 			set_point(&copy, &info->start, &info->end, line);

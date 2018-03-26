@@ -10,7 +10,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-int	main()
+int	main(void)
 {
 	room_s *room;
 	info_s info;
@@ -18,7 +18,8 @@ int	main()
 	room = NULL;
 	info.path = malloc(sizeof(char *) * 2);
 	info.path[0] = NULL;
-	set_room(&room, &info);
+	if (set_room(&room, &info) == 84)
+		return (84);
 	printf("%s,%s,%d\n", info.start, info.end, info.ants);
 	return (0);
 }
