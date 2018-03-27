@@ -11,6 +11,12 @@ typedef struct room_struct {
 	struct room_struct **next;
 } room_s;
 
+typedef struct prev_struct {
+	char *name;
+	int nb_way;
+	struct prev_struct **prev;
+} prev_s;
+
 typedef struct info_struct {
 	char **path;
 	char *start;

@@ -19,6 +19,8 @@ char	*fill_point(room_s **room);
 // ___ take_value.c ___
 
 char	*take_name(char *line);
+char	*take_first(char *str);
+char	*take_second(char *str);
 
 // ___ make_path.c ___
 
