@@ -18,7 +18,7 @@ int	main(void)
 	room = NULL;
 	info.path = malloc(sizeof(char *) * 2);
 	info.path[0] = NULL;
-	if (set_room(&room, &info) == 84)
+	if (set_room(room, &info) == 84)
 		return (84);
 	printf("%s,%s,%d\n", info.start, info.end, info.ants);
 	return (0);
