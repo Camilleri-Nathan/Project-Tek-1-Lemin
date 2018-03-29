@@ -59,14 +59,14 @@ void	set_point(info_s *info, char *line)
 {
 	if (line[0] == '#' && line[1] == '#') {
 		if (my_strncmp(line, "##start", 8)) {
-			info->start = fill_point(info);
 			my_putstr(1, line);
 			my_putchar('\n');
+			info->start = fill_point(info);
 		}
 		else if (my_strncmp(line, "##end", 6)) {
-			info->end = fill_point(info);
 			my_putstr(1, line);
 			my_putchar('\n');
+			info->end = fill_point(info);
 		}
 	}
 }
