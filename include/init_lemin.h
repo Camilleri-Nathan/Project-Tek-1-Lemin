@@ -25,6 +25,7 @@ char	*take_second(char *str);
 
 // ___ make_path.c ___
 
+void	set_path(room_s *room, room_s **copy, info_s *info);
 void	save_path(info_s *info, char *line);
 char	**realloc_path(char **path, int *array);
 char	**make_copy(char **path);

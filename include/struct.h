@@ -12,9 +12,8 @@ typedef struct room_struct {
 } room_s;
 
 typedef struct prev_struct {
-	char *name;
-	int nb_way;
-	struct prev_struct **prev;
+	int way;
+	room_s *room;
 } prev_s;
 
 typedef struct info_struct {

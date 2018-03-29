@@ -7,6 +7,7 @@
 
 #include "struct.h"
 #include "init_lemin.h"
+#include "tools_lemin.h"
 #include <stdlib.h>
 #include <stdio.h>
 
@@ -20,6 +21,6 @@ int	main(void)
 	info.path[0] = NULL;
 	if (set_room(room, &info) == 84)
 		return (84);
-//	printf("%s,%s,%d\n", info.start, info.end, info.ants);
+	my_putstr(1, "#moves\n");
 	return (0);
 }

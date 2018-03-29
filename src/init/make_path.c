@@ -11,6 +11,24 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+void	set_path(room_s *room, room_s **copy, info_s *info)
+{
+	room_s *prev = NULL;
+	int way = 0;
+
+	prev = room;
+	while (1) {
+		room = prev;
+		if (room->next[way] == NULL)
+			break;
+		room = room->next[way];
+		way += 1;
+		link_room(info, room, copy);
+		room = room->next[way];
+		set_path(room, copy, info);
+	}
+}
+
 void	save_path(info_s *info, char *line)
 {
 	int array = 0;
