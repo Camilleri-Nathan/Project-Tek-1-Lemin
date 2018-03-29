@@ -17,19 +17,14 @@
 int	set_room(room_s *room, info_s *info)
 {
 	room_s **copy;
-	char *line = NULL;
 
 	info->ants = set_ants();
-	line = get_next_line(0);
-	if (line == NULL)
+	my_putstr(1, "#number_of_ants\n");
+	my_put_nbr(info->ants);
+	my_putchar('\n');
+	my_putstr(1, "#rooms\n");
+	if (init_room(info) == 84)
 		return (84);
-	while (line != NULL) {
-		if (line[0] == '#')
-			set_point(info, line);
-		else
-			save_path(info, line);
-		line = get_next_line(0);
-	}
 	copy = make_room(info);
 	link_path(room, copy, info);
 	return (0);
@@ -65,9 +60,13 @@ void	set_point(info_s *info, char *line)
 	if (line[0] == '#' && line[1] == '#') {
 		if (my_strncmp(line, "##start", 8)) {
 			info->start = fill_point(info);
+			my_putstr(1, line);
+			my_putchar('\n');
 		}
 		else if (my_strncmp(line, "##end", 6)) {
 			info->end = fill_point(info);
+			my_putstr(1, line);
+			my_putchar('\n');
 		}
 	}
 }
@@ -79,6 +78,8 @@ char	*fill_point(info_s *info)
 	int carac = 0;
 
 	line = get_next_line(0);
+	my_putstr(1, line);
+	my_putchar('\n');
 	save_path(info, line);
 	point = malloc(sizeof(char) * ((my_strlen(take_name(line))) + 1));
 	while (line[carac] != ' ' && line[carac] != '\0') {

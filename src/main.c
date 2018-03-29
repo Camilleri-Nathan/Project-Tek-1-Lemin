@@ -20,6 +20,6 @@ int	main(void)
 	info.path[0] = NULL;
 	if (set_room(room, &info) == 84)
 		return (84);
-	printf("%s,%s,%d\n", info.start, info.end, info.ants);
+//	printf("%s,%s,%d\n", info.start, info.end, info.ants);
 	return (0);
 }

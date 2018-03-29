@@ -8,7 +8,33 @@
 #include "struct.h"
 #include "init_lemin.h"
 #include "tools_lemin.h"
+#include "get_next_line.h"
 #include <stdlib.h>
+
+int	init_room(info_s *info)
+{
+	char *line = NULL;
+	int put = 0;
+
+	line = get_next_line(0);
+	if (line == NULL)
+		return (84);
+	while (line != NULL) {
+		if (line[0] == '#')
+			set_point(info, line);
+		else {
+			save_path(info, line);
+			my_putstr(1, line);
+			my_putchar('\n');
+		}
+		if (put == 0 && find_arrow(line)) {
+			my_putstr(1, "#tunnels\n");
+			put = 1;
+		}
+		line = get_next_line(0);
+	}
+	return (0);
+}
 
 char	*take_name(char *line)
 {

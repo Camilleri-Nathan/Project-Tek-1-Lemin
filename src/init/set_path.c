@@ -13,25 +13,25 @@
 
 void	link_path(room_s *room, room_s **copy, info_s *info)
 {
-	room_s *save;
+//	room_s *save;
 
 	room = copy[0];
 	//while () {
 	link_room(info, room, copy);
-	room = room->next[0];
-	link_room(info, room, copy);
+//	room = room->next[0];
+//	link_room(info, room, copy);
 	
 //}
-	printf("\n___ WARNING ___ POSSIBILITY OF SEGFAULT WITH PRINTF ___\n");
-	printf("||| room->name = %s\n", room->name);
-	save = room;
-	if (room->next[0] == NULL)
-		printf(" = NULL ERROR\n");
-	room = room->next[0];
-	printf("||room->name = %s\n", room->name);
-	room = save;
-	room = room->next[1];
-	printf("|room->name = %s\n", room->name);
+//	printf("\n___ WARNING ___ POSSIBILITY OF SEGFAULT WITH PRINTF ___\n");
+//	printf("||| room->name = %s\n", room->name);
+//	save = room;
+//	if (room->next[0] == NULL)
+//		printf(" = NULL ERROR\n");
+//	room = room->next[0];
+//	printf("||room->name = %s\n", room->name);
+//	room = save;
+//	room = room->next[1];
+//	printf("|room->name = %s\n", room->name);
 }
 
 void	link_room(info_s *info, room_s *room, room_s **copy)

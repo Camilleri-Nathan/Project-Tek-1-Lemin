@@ -18,6 +18,7 @@ room_s	**make_room(info_s *info);
 
 // ___ take_value.c ___
 
+int	init_room(info_s *info);
 char	*take_name(char *line);
 char	*take_first(char *str);
 char	*take_second(char *str);
