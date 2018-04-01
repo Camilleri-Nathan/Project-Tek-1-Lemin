@@ -5,11 +5,12 @@
 ** By Camilleri Nathan
 */
 
+#include <stdlib.h>
+#include <stdio.h>
 #include "struct.h"
 #include "init_lemin.h"
 #include "tools_lemin.h"
-#include <stdlib.h>
-#include <stdio.h>
+#include "find_lemin.h"
 
 int	main(void)
 {
@@ -21,5 +22,6 @@ int	main(void)
 	info.path[0] = NULL;
 	room = set_room(room, &info);
 	my_putstr(1, "#moves\n");
+	find_way(room, &info);
 	return (0);
 }

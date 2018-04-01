@@ -8,24 +8,39 @@
 #include "struct.h"
 #include "init_lemin.h"
 #include "tools_lemin.h"
+#include "find_lemin.h"
 #include <stdlib.h>
 #include <stdio.h>
 
 void	set_path(room_s *room, room_s **copy, info_s *info)
 {
-	room_s *prev = NULL;
-	int way = 0;
+	room_s **prev;
+	room_s **over;
+	int array = 0;
 
-	prev = room;
+	prev = malloc(sizeof(room_s *) * 2);
+	over = malloc(sizeof(room_s *) * 2);
+	over[0] = NULL;
+	prev[0] = NULL;
 	while (1) {
-		room = prev;
-		if (room->next[way] == NULL)
-			break;
-		room = room->next[way];
-		way += 1;
-		link_room(info, room, copy);
-		room = room->next[way];
-		set_path(room, copy, info);
+		while (1) {
+			if (room->next[array] != NULL
+			&& test_over(room, prev, over, array) == 0) {
+				prev = add_array(room, prev);
+				room = room->next[array];
+				link_room(info, room, copy);
+				break;
+			}
+			else if (room->next[array] == NULL) {
+				over = add_array(room, over);
+				room = prev[nb_array(prev) - 1];
+				break;
+			}
+			array += 1;
+		}
+		if (nb_array(over) == nb_array(copy))
+			break; 
+		array = 0;
 	}
 }
 

@@ -5,6 +5,9 @@
 ** struct.h
 */
 
+#ifndef STRUCT_H_
+#define STRUCT_H_
+
 typedef struct room_struct {
 	char *name;
 	int nb_way;
@@ -22,3 +25,5 @@ typedef struct info_struct {
 	char *end;
 	int ants;
 } info_s;
+
+#endif /* STRUCT_H_ */
