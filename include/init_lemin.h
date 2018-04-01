@@ -10,7 +10,7 @@
 
 // ___ init_room.c ___
 
-int	set_room(room_s *room, info_s *info);
+room_s	*set_room(room_s *room, info_s *info);
 int	set_ants(void);
 void	set_point(info_s *info, char *line);
 char	*fill_point(info_s *info);
@@ -32,7 +32,7 @@ char	**make_copy(char **path);
 
 // ___ set_path.c ___
 
-void	link_path(room_s *room, room_s **copy, info_s *info);
+room_s	*link_path(room_s *room, room_s **copy, info_s *info);
 room_s	*add_room(char *line);
 void	make_path(room_s *room, room_s *save);
 void	link_room(info_s *info, room_s *room, room_s **copy);

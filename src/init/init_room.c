@@ -14,7 +14,7 @@
 #include <unistd.h>
 #include <stdio.h>
 
-int	set_room(room_s *room, info_s *info)
+room_s	*set_room(room_s *room, info_s *info)
 {
 	room_s **copy;
 
@@ -24,10 +24,10 @@ int	set_room(room_s *room, info_s *info)
 	my_putchar('\n');
 	my_putstr(1, "#rooms\n");
 	if (init_room(info) == 84)
-		return (84);
+		exit(84);
 	copy = make_room(info);
-	link_path(room, copy, info);
-	return (0);
+	room = link_path(room, copy, info);
+	return (room);
 }
 
 room_s	**make_room(info_s *info)

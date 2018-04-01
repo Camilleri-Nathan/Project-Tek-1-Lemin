@@ -11,11 +11,12 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-void	link_path(room_s *room, room_s **copy, info_s *info)
+room_s	*link_path(room_s *room, room_s **copy, info_s *info)
 {
 	room = copy[0];
 	link_room(info, room, copy);
 	set_path(room, copy, info);
+	return (room);
 }
 
 void	link_room(info_s *info, room_s *room, room_s **copy)

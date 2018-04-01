@@ -19,8 +19,7 @@ int	main(void)
 	room = NULL;
 	info.path = malloc(sizeof(char *) * 2);
 	info.path[0] = NULL;
-	if (set_room(room, &info) == 84)
-		return (84);
+	room = set_room(room, &info);
 	my_putstr(1, "#moves\n");
 	return (0);
 }
