@@ -14,34 +14,39 @@
 
 void	set_path(room_s *room, room_s **copy, info_s *info)
 {
-	room_s **prev;
-	room_s **over;
-	int array = 0;
+	path_s path;
 
-	prev = malloc(sizeof(room_s *) * 2);
-	over = malloc(sizeof(room_s *) * 2);
-	over[0] = NULL;
-	prev[0] = NULL;
+	path.prev = malloc(sizeof(room_s *) * 2);
+	path.over = malloc(sizeof(room_s *) * 2);
+	path.over[0] = NULL;
+	path.prev[0] = NULL;
+	path.array = 0;
 	while (1) {
-		while (1) {
-			if (room->next[array] != NULL
-			&& test_over(room, prev, over, array) == 0) {
-				prev = add_array(room, prev);
-				room = room->next[array];
-				link_room(info, room, copy);
-				break;
-			}
-			else if (room->next[array] == NULL) {
-				over = add_array(room, over);
-				room = prev[nb_array(prev) - 1];
-				break;
-			}
-			array += 1;
-		}
-		if (nb_array(over) == nb_array(copy))
-			break; 
-		array = 0;
+		room = link_path_create(&path, room, copy, info);
+		if (nb_array(path.over) == nb_array(copy))
+			break;
+		path.array = 0;
 	}
+}
+
+room_s	*link_path_create(path_s *path, room_s *room, room_s **copy, info_s *info)
+{
+	while (1) {
+		if (room->next[path->array] != NULL
+		&& test_over(room, path->prev, path->over, path->array) == 0) {
+			path->prev = add_array(room, path->prev);
+			room = room->next[path->array];
+			link_room(info, room, copy);
+			break;
+		}
+		else if (room->next[path->array] == NULL) {
+			path->over = add_array(room, path->over);
+			room = path->prev[nb_array(path->prev) - 1];
+			break;
+		}
+		path->array += 1;
+	}
+	return (room);
 }
 
 void	save_path(info_s *info, char *line)

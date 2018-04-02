@@ -14,10 +14,11 @@ typedef struct room_struct {
 	struct room_struct **next;
 } room_s;
 
-typedef struct prev_struct {
-	int way;
-	room_s *room;
-} prev_s;
+typedef struct path_struct {
+	room_s **prev;
+	room_s **over;
+	int array;
+} path_s;
 
 typedef struct info_struct {
 	char **path;

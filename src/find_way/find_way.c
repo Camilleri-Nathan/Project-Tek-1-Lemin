@@ -12,34 +12,39 @@
 
 void	find_way(room_s *room, info_s *info)
 {
-	room_s **prev;
-	room_s **over;
-	int array = 0;
+	path_s path;
 
-	prev = malloc(sizeof(room_s *) * 2);
-	over = malloc(sizeof(room_s *) * 2);
-	over[0] = NULL;
-	prev[0] = NULL;
+	path.prev = malloc(sizeof(room_s *) * 2);
+	path.over = malloc(sizeof(room_s *) * 2);
+	path.over[0] = NULL;
+	path.prev[0] = NULL;
+	path.array = 0;
 	while (1) {
-		while (1) {
-			if (room->next[array] != NULL
-			    && test_over(room, prev, over, array) == 0) {
-				prev = add_array(room, prev);
-				room = room->next[array];
-				break;
-			}
-			else if (room->next[array] == NULL) {
-				over = add_array(room, over);
-				room = prev[nb_array(prev) - 1];
-				prev[nb_array(prev) - 1] = NULL;
-				break;
-			}
-			array += 1;
-		}
+		room = link_path_way(&path, room);
 		if (my_strncmp(info->end, room->name, my_strlen(info->end)))
 			break;
-		array = 0;
+		path.array = 0;
 	}
+}
+
+room_s	*link_path_way(path_s *path, room_s *room)
+{
+	while (1) {
+		if (room->next[path->array] != NULL
+		&& test_over(room, path->prev, path->over, path->array) == 0) {
+			path->prev = add_array(room, path->prev);
+			room = room->next[path->array];
+			break;
+		}
+		else if (room->next[path->array] == NULL) {
+			path->over = add_array(room, path->over);
+			room = path->prev[nb_array(path->prev) - 1];
+			path->prev[nb_array(path->prev) - 1] = NULL;
+			break;
+		}
+		path->array += 1;
+	}
+	return (room);
 }
 
 int	nb_array(room_s **array)
