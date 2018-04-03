@@ -18,9 +18,12 @@ int	main(void)
 	info_s info;
 
 	room = NULL;
+	info.exit = 0;
 	info.path = malloc(sizeof(char *) * 2);
 	info.path[0] = NULL;
 	room = set_room(room, &info);
+	if (info.exit == -1)
+		return (84);
 	my_putstr(1, "#moves\n");
 	find_way(room, &info);
 	return (0);

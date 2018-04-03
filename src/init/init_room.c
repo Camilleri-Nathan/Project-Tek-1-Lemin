@@ -18,7 +18,11 @@ room_s	*set_room(room_s *room, info_s *info)
 {
 	room_s **copy;
 
-	info->ants = set_ants();
+	info->ants = set_ants(info);
+	if (info->exit == -1) {
+		info->exit = -1;
+		return (NULL);
+	}
 	my_putstr(1, "#number_of_ants\n");
 	my_put_nbr(info->ants);
 	my_putchar('\n');
@@ -78,6 +82,10 @@ char	*fill_point(info_s *info)
 	int carac = 0;
 
 	line = get_next_line(0);
+	if (line == NULL) {
+		info->exit = -1;
+		return (NULL);
+	}
 	my_putstr(1, line);
 	my_putchar('\n');
 	save_path(info, line);
@@ -90,12 +98,16 @@ char	*fill_point(info_s *info)
 	return (point);
 }
 
-int	set_ants(void)
+int	set_ants(info_s *info)
 {
 	char *line = NULL;
 
 	while (1) {
 		line = get_next_line(0);
+		if (line == NULL) {
+			info->exit = -1;
+			return (84);
+		}
 		if (line[0] != '#')
 			return (my_getnbr(line));
 	}

@@ -24,6 +24,7 @@ typedef struct info_struct {
 	char **path;
 	char *start;
 	char *end;
+	int exit;
 	int ants;
 } info_s;
 
