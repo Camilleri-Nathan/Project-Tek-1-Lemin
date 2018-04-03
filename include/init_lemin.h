@@ -40,4 +40,8 @@ void	make_path(room_s *room, room_s *save);
 void	link_room(info_s *info, room_s *room, room_s **copy);
 void	add_link(char *first, char *second, room_s *room, room_s *copy);
 
+// **** error_file ******
+
+int	test_error(info_s *info);
+
 #endif		/* TOOLS_LEMIN_H_ */

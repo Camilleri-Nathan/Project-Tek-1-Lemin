@@ -17,8 +17,10 @@ int	init_room(info_s *info)
 	int put = 0;
 
 	line = get_next_line(0);
-	if (line == NULL)
+	if (line == NULL) {
+		info->exit = -1;
 		return (84);
+	}
 	while (line != NULL) {
 		if (line[0] == '#')
 			set_point(info, line);

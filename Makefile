@@ -33,11 +33,13 @@ SRCS		=	tools/my_strncmp.c		\
 			tools/my_put_nbr.c		\
 			tools/my_putchar.c		\
 			tools/useful.c			\
+			tools/my_strcmp.c		\
 			init/init_room.c		\
 			init/take_value.c		\
 			init/make_path.c		\
 			init/set_path.c			\
-			find_way/find_way.c			\
+			init/error_map.c		\
+			find_way/find_way.c		\
 			main.c
 
 DEBUG		=	no

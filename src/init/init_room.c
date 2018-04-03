@@ -28,7 +28,9 @@ room_s	*set_room(room_s *room, info_s *info)
 	my_putchar('\n');
 	my_putstr(1, "#rooms\n");
 	if (init_room(info) == 84)
-		exit(84);
+		return (NULL);
+	if (test_error(info) == 84)
+		return (NULL);
 	copy = make_room(info);
 	room = link_path(room, copy, info);
 	return (room);
