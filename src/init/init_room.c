@@ -40,18 +40,18 @@ room_s	**make_room(info_s *info)
 {
 	room_s **copy;
 	int array = 0;
-	int tab = 0;
+	int tab = 1;
 
 	while (info->path[tab] != NULL) {
-		if (find_arrow(info->path[tab]) == 0)
+		if (find_arrow(info->path[tab]) == 0 && info->path[tab][0] != '#')
 			array += 1;
 		tab += 1;
 	}
-	tab = 0;
+	tab = 1;
 	array = 0;
 	copy = malloc(sizeof(room_s) * (array + 2));
 	while (info->path[tab] != NULL) {
-		if (find_arrow(info->path[tab]) == 0) {
+		if (find_arrow(info->path[tab]) == 0 && info->path[tab][0] != '#') {
 			copy[array] = add_room(info->path[tab]);
 			array += 1;
 		}
@@ -104,14 +104,15 @@ int	set_ants(info_s *info)
 {
 	char *line = NULL;
 
-	(void)info;
 	while (1) {
 		line = get_next_line(0);
 		if (line == NULL) {
 			info->exit = -1;
 			return (84);
 		}
-		if (line[0] != '#')
+		if (line[0] != '#') {
+			save_path(info, line);
 			return (my_getnbr(line));
+		}
 	}
 }
