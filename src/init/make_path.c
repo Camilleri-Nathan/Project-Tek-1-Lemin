@@ -101,7 +101,7 @@ char	**make_copy(char **path)
 	array = 0;
 	while (path[array] != NULL) {
 		copy[array] = malloc(sizeof(char) *
-		my_strlen(path[array]) + 1));
+		my_strlen(path[array]) + 1);
 		while (path[array][carac] != '\0') {
 			copy[array][carac] = path[array][carac];
 			carac += 1;
