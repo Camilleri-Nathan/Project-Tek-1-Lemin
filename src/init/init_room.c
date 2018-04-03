@@ -29,8 +29,8 @@ room_s	*set_room(room_s *room, info_s *info)
 	my_putstr(1, "#rooms\n");
 	if (init_room(info) == 84)
 		return (NULL);
-	if (test_error(info) == 84)
-		return (NULL);
+//	if (test_error(info) == 84)
+//		return (NULL);
 	copy = make_room(info);
 	room = link_path(room, copy, info);
 	return (room);
@@ -104,6 +104,7 @@ int	set_ants(info_s *info)
 {
 	char *line = NULL;
 
+	(void)info;
 	while (1) {
 		line = get_next_line(0);
 		if (line == NULL) {

@@ -13,33 +13,28 @@
 
 #include <stdio.h>
 
-int	check_nb_start(info_s *info, int *check_start)
+int	check_nb_start(info_s *info)
 {
 	int index = 0;
+	int check_start = 0;
 
 	while (info->path[index] != NULL) {
 		if (!my_strcmp(info->path[index], "##start")) {
-			*check_start += 1;
+			check_start += 1;
+			printf("tt\n");
 		}
-		else
-			*check_start = 0;
 		index++;
 	}
-	return (0);
+	return (check_start);
 }
 
 int	test_error(info_s *info)
 {
-	int index = 0; 
 	int check_start = 0;
 //	int check_end = 1;
 
-	while (info->path[index] != NULL) {
-		printf("**********\n%s\n", info->path[index]);
-		index++;
-	}
 //	printf("check_start = %d\n", check_start);
-	check_nb_start(info, &check_start);
+	check_start = check_nb_start(info);
 	if (check_start != 1) {
 		printf("toto");
 		return (84);

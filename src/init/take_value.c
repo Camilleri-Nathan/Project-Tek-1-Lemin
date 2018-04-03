@@ -23,7 +23,7 @@ int	init_room(info_s *info)
 	}
 	while (line != NULL) {
 		if (line[0] == '#') {
-			save_path(info, line);
+//			save_path(info, line);
 			set_point(info, line);
 		}
 		else {
