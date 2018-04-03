@@ -43,7 +43,7 @@ void	add_link(char *first, char *second, room_s *room, room_s *copy)
 {
 	if (my_strncmp(first, room->name, my_strlen(room->name + 1))) {
 		if (my_strncmp(second, copy->name,
-		my_strlen(room->name + 1)))
+			my_strlen(room->name + 1)))
 			make_path(room, copy);
 	}
 }

@@ -29,7 +29,8 @@ void	set_path(room_s *room, room_s **copy, info_s *info)
 	}
 }
 
-room_s	*link_path_create(path_s *path, room_s *room, room_s **copy, info_s *info)
+room_s	*link_path_create(path_s *path, room_s *room, room_s **copy,
+info_s *info)
 {
 	while (1) {
 		if (room->next[path->array] != NULL
@@ -69,7 +70,7 @@ char	**realloc_path(char **path, int *array)
 	char **copy = make_copy(path);
 	int tab = 0;
 	int carac = 0;
-	
+
 	while (path[*array] != NULL) {
 		*array += 1;
 	}
@@ -100,9 +101,9 @@ char	**make_copy(char **path)
 	array = 0;
 	while (path[array] != NULL) {
 		copy[array] = malloc(sizeof(char) *
-			(my_strlen(path[array]) + 1));
+		my_strlen(path[array]) + 1));
 		while (path[array][carac] != '\0') {
-	        	copy[array][carac] = path[array][carac];
+			copy[array][carac] = path[array][carac];
 			carac += 1;
 		}
 		copy[array][carac] = '\0';

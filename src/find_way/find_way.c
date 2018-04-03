@@ -85,15 +85,15 @@ int	test_over(room_s *room, room_s **prev, room_s **over, int array)
 
 	copy = copy->next[array];
 	while (prev[tab] != NULL) {
-		if (my_strncmp(prev[tab]->name,
-		copy->name, my_strlen(copy->name)))
+		if (my_strncmp(prev[tab]->name, copy->name,
+			my_strlen(copy->name)))
 			return (1);
 		tab += 1;
 	}
 	tab = 0;
 	while (over[tab] != NULL) {
 		if (my_strncmp(over[tab]->name,
-		copy->name, my_strlen(copy->name)))
+			copy->name, my_strlen(copy->name)))
 			return (1);
 		tab += 1;
 	}
