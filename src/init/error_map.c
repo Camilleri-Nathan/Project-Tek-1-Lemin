@@ -12,7 +12,7 @@
 #include <stdlib.h>
 
 
-//#include <stdio.h>
+#include <stdio.h>
 
 static int	check_nb_start(info_s *info)
 {
@@ -45,10 +45,18 @@ static int	check_nb_end(info_s *info)
 static int	check_nb_ants(info_s *info)
 {
 	int index = 0;
-	
-	while (!my_strcmp(info->path[index], "##start")) {
-		index++;
+
+	while (my_strcmp(info->path[index], "##start")) {
+		while (info->path[index][0] == '#')
+			index++;
+		if (my_str_isnum(info->path[index]) == 84)
+			return (84);
+		else {
+			index += 1;
+		}
 	}
+	if (index == 0)
+		return (84);
 	return (0);
 }
 

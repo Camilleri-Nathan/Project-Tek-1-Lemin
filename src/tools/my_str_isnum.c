@@ -6,6 +6,7 @@
 */
 
 #include <unistd.h>
+#include "tools_lemin.h"
 
 int	my_str_isnum(char const *str)
 {
