@@ -44,8 +44,10 @@ static int	check_nb_end(info_s *info)
 
 static int	check_nb_ants(info_s *info)
 {
+	int index = 0;
+	
 	while (!my_strcmp(info->path[index], "##start")) {
-		
+		index++;
 	}
 	return (0);
 }
@@ -54,6 +56,7 @@ int	test_error(info_s *info)
 {
 	int check_start = 0;
 	int check_end = 0;
+	int check_ants = 0;
 //	int index = 0;
 
 /*	while (info->path[index] != NULL) {
