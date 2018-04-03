@@ -22,8 +22,10 @@ int	init_room(info_s *info)
 		return (84);
 	}
 	while (line != NULL) {
-		if (line[0] == '#')
+		if (line[0] == '#') {
+			save_path(info, line);
 			set_point(info, line);
+		}
 		else {
 			save_path(info, line);
 			my_putstr(1, line);
