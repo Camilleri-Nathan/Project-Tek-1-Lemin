@@ -42,6 +42,7 @@ SRCS		=	tools/my_strncmp.c		\
 			init/test_error_part_2.c	\
 			init/counter.c			\
 			find_way/find_way.c		\
+			send_ants/send_ant.c		\
 			main.c
 
 DEBUG		=	no

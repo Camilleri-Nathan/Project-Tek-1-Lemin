@@ -49,4 +49,8 @@ int	check_hyphen_file(info_s *info);
 int	counter_space(char *str);
 int	counter_hyphen(char *str);
 
+// **** send_ant ******
+
+int	send_and_display_ant(info_s info, path_s path);
+
 #endif		/* TOOLS_LEMIN_H_ */
