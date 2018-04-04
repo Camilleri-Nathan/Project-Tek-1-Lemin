@@ -22,6 +22,10 @@ int	init_room(info_s *info)
 		return (84);
 	}
 	while (line != NULL) {
+		if (put == 0 && find_arrow(line)) {
+			my_putstr(1, "#tunnels\n");
+			put = 1;
+		}
 		if (line[0] == '#') {
 			save_path(info, line);
 			set_point(info, line);
@@ -30,10 +34,6 @@ int	init_room(info_s *info)
 			save_path(info, line);
 			my_putstr(1, line);
 			my_putchar('\n');
-		}
-		if (put == 0 && find_arrow(line)) {
-			my_putstr(1, "#tunnels\n");
-			put = 1;
 		}
 		line = get_next_line(0);
 	}

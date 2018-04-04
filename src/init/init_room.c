@@ -23,16 +23,16 @@ room_s	*set_room(room_s *room, info_s *info)
 		info->exit = -1;
 		return (NULL);
 	}
+	my_putstr(1, "#number_of_ants\n");
+	my_put_nbr(info->ants);
+	my_putchar('\n');
+	my_putstr(1, "#rooms\n");
 	if (init_room(info) == 84)
 		return (NULL);
 	if (test_error(info) == 84) {
 		info->exit = -1;
 		return (NULL);
 	}
-	my_putstr(1, "#number_of_ants\n");
-	my_put_nbr(info->ants);
-	my_putchar('\n');
-	my_putstr(1, "#rooms\n");
 	copy = make_room(info);
 	room = link_path(room, copy, info);
 	return (room);
