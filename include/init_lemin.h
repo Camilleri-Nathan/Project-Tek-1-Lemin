@@ -43,5 +43,10 @@ void	add_link(char *first, char *second, room_s *room, room_s *copy);
 // **** error_file ******
 
 int	test_error(info_s *info);
+int	check_after_start_and_end(info_s *info);
+int	check_nb_av_and_type(info_s *info);
+int	check_hyphen_file(info_s *info);
+int	counter_space(char *str);
+int	counter_hyphen(char *str);
 
 #endif		/* TOOLS_LEMIN_H_ */

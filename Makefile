@@ -39,6 +39,8 @@ SRCS		=	tools/my_strncmp.c		\
 			init/make_path.c		\
 			init/set_path.c			\
 			init/error_map.c		\
+			init/test_error_part_2.c	\
+			init/counter.c			\
 			find_way/find_way.c		\
 			main.c
 

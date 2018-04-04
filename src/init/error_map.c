@@ -42,18 +42,37 @@ static int	check_nb_end(info_s *info)
 static int	check_nb_ants(info_s *info)
 {
 	int index = 0;
+	int nb = 0;
 
 	while (my_strcmp(info->path[index], "##start")) {
 		while (info->path[index][0] == '#')
 			index++;
-		if (my_str_isnum(info->path[index]) == 84)
+		if (my_str_isnum(info->path[index]) == 84) {
 			return (84);
-		else {
-			index += 1;
 		}
+		else
+			nb++;
+		index++;
 	}
 	if (index == 0)
 		return (84);
+	if (nb != 1)
+		return (84);
+	return (0);
+}
+
+static int	test_error_suit(info_s *info, int *check_after, int *check_type)
+{
+	*check_after = check_after_start_and_end(info);
+	if (*check_after == 84) {
+		info->exit = -1;
+		return (84);
+	}
+	*check_type = check_nb_av_and_type(info);
+	if (*check_type == 84) {
+		info->exit = -1;
+		return (84);
+	}
 	return (0);
 }
 
@@ -62,6 +81,8 @@ int	test_error(info_s *info)
 	int check_start = 0;
 	int check_end = 0;
 	int check_ants = 0;
+	int check_after = 0;
+	int check_type = 0;
 
 	check_start = check_nb_start(info);
 	check_end = check_nb_end(info);
@@ -74,5 +95,7 @@ int	test_error(info_s *info)
 		info->exit = -1;
 		return (84);
 	}
+	if (test_error_suit(info, &check_after, &check_type) == 84)
+		return (84);
 	return (0);
 }
