@@ -11,9 +11,6 @@
 #include "get_next_line.h"
 #include <stdlib.h>
 
-
-#include <stdio.h>
-
 static int	check_nb_start(info_s *info)
 {
 	int index = 0;
@@ -65,13 +62,8 @@ int	test_error(info_s *info)
 	int check_start = 0;
 	int check_end = 0;
 	int check_ants = 0;
-//	int index = 0;
 
-/*	while (info->path[index] != NULL) {
-		printf("*********\n%s\n", info->path[index]);
-		index++;
-	}
-*/	check_start = check_nb_start(info);
+	check_start = check_nb_start(info);
 	check_end = check_nb_end(info);
 	if (check_start != 1 || check_end != 1) {
 		info->exit = -1;
