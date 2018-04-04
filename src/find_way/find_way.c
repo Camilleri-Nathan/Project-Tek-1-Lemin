@@ -10,7 +10,7 @@
 #include "tools_lemin.h"
 #include "struct.h"
 
-void	find_way(room_s *room, info_s *info)
+path_s	find_way(room_s *room, info_s *info)
 {
 	path_s path;
 
@@ -25,6 +25,7 @@ void	find_way(room_s *room, info_s *info)
 			break;
 		path.array = 0;
 	}
+	return (path);
 }
 
 room_s	*link_path_way(path_s *path, room_s *room)
