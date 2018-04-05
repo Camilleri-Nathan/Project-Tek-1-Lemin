@@ -28,7 +28,8 @@ int	init_room(info_s *info)
 		}
 		if (line[0] == '#') {
 			save_path(info, line);
-			set_point(info, line);
+			if (set_point(info, line) == 84)
+				return (84);
 		}
 		else {
 			save_path(info, line);

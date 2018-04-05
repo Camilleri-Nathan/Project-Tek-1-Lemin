@@ -43,7 +43,7 @@ int	main(void)
 	if (init_info(&info) == false)
 		return (84);
 	room = set_room(room, &info);
-	if (info.exit == -1)
+	if (info.exit == -1 || room == NULL)
 		return (84);
 	my_putstr(1, "#moves\n");
 	path = find_way(room, &info);

@@ -12,7 +12,7 @@
 
 room_s	*set_room(room_s *room, info_s *info);
 int	set_ants(info_s *info);
-void	set_point(info_s *info, char *line);
+int	set_point(info_s *info, char *line);
 char	*fill_point(info_s *info);
 room_s	**make_room(info_s *info);
 

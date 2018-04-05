@@ -65,20 +65,23 @@ room_s	**make_room(info_s *info)
 	return (copy);
 }
 
-void	set_point(info_s *info, char *line)
+int	set_point(info_s *info, char *line)
 {
 	if (line[0] == '#' && line[1] == '#') {
 		if (my_strncmp(line, "##start", 8)) {
 			my_putstr(1, line);
 			my_putchar('\n');
-			info->start = fill_point(info);
+			if ((info->start = fill_point(info)) == NULL)
+				return (84);
 		}
 		else if (my_strncmp(line, "##end", 6)) {
 			my_putstr(1, line);
 			my_putchar('\n');
-			info->end = fill_point(info);
+			if ((info->end = fill_point(info)) == NULL)
+				return (84);
 		}
 	}
+	return (0);
 }
 
 char	*fill_point(info_s *info)
