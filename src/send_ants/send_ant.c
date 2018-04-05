@@ -50,7 +50,7 @@ int	counter_room(ant_s *all_ant, path_s path)
 	unsigned int		room = 0;
 
 	while (tmp != NULL && path.prev[room + 1] != NULL &&
-	       path.prev[room + 1]->enter_in_room == true) {
+	path.prev[room + 1]->enter_in_room == true) {
 		room++;
 		tmp = tmp->next;
 	}

@@ -53,7 +53,7 @@ static int	check_nb_ants(info_s *info)
 		if (info->path[index][0] == '#' && info->path[index][1] == '#')
 			return (0);
 		if ((my_strcmp(info->path[index], "##start") == 0) ||
-		   (space = counter_space(info->path[index])) != 2)
+		(space = counter_space(info->path[index])) != 2)
 			return (84);
 		index++;
 	}

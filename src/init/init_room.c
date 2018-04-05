@@ -45,7 +45,8 @@ room_s	**make_room(info_s *info)
 	int tab = 1;
 
 	while (info->path[tab] != NULL) {
-		if (find_arrow(info->path[tab]) == 0 && info->path[tab][0] != '#')
+		if (find_arrow(info->path[tab]) == 0
+		&& info->path[tab][0] != '#')
 			array += 1;
 		tab += 1;
 	}
@@ -53,7 +54,8 @@ room_s	**make_room(info_s *info)
 	array = 0;
 	copy = malloc(sizeof(room_s) * (array + 2));
 	while (info->path[tab] != NULL) {
-		if (find_arrow(info->path[tab]) == 0 && info->path[tab][0] != '#') {
+		if (find_arrow(info->path[tab]) == 0
+		&& info->path[tab][0] != '#') {
 			copy[array] = add_room(info->path[tab]);
 			array += 1;
 		}
