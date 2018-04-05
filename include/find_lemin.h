@@ -23,4 +23,11 @@ int	nb_array(room_s **array);
 void	check_end(ant_s **all_ant, path_s path);
 void	delete_ant(ant_s **all_ant);
 
+//****cross_in_room*******
+int	counter_room(ant_s *all_ant, path_s path);
+void	nominate_room(ant_s *all_ant, path_s path);
+void	display_ant_in_room(ant_s *all_ant, path_s path, info_s info);
+
+
+
 #endif		/* FIND_LEMIN_H_ */

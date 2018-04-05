@@ -44,6 +44,7 @@ SRCS		=	tools/my_strncmp.c		\
 			find_way/find_way.c		\
 			send_ants/send_ant.c		\
 			send_ants/check_end.c		\
+			send_ants/cross_in_room.c	\
 			main.c
 
 DEBUG		=	no
