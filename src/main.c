@@ -47,6 +47,8 @@ int	main(void)
 		return (84);
 	my_putstr(1, "#moves\n");
 	path = find_way(room, &info);
+	if (info.exit == -1)
+		return (84);
 	init_enter_of_room(path.prev);
 	if (send_and_display_ant(info, path) == 84)
 		return (84);
