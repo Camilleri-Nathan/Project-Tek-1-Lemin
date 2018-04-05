@@ -18,4 +18,9 @@ room_s	**add_array(room_s *room, room_s **array);
 int	test_over(room_s *room, room_s **prev, room_s **over, int array);
 int	nb_array(room_s **array);
 
+//****check_end*******
+
+void	check_end(ant_s **all_ant, path_s path);
+void	delete_ant(ant_s **all_ant);
+
 #endif		/* FIND_LEMIN_H_ */

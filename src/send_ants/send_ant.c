@@ -8,6 +8,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <unistd.h>
+#include "find_lemin.h"
 #include "tools_lemin.h"
 #include "struct.h"
 
@@ -110,13 +111,6 @@ void	delete_ant(ant_s **all_ant)
 		free(tmp);
 		*all_ant = tmp2;
 	}
-}
-
-void	check_end(ant_s **all_ant, path_s path)
-{
-	if ((*all_ant) != NULL &&
-	path.prev[(*all_ant)->nbr_room] == NULL)
-		delete_ant(all_ant);
 }
 
 int	send_and_display_ant(info_s info, path_s path)
