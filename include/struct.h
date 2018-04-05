@@ -8,8 +8,18 @@
 #ifndef STRUCT_H_
 #define STRUCT_H_
 
+#include <stdbool.h>
+
+typedef struct ant_struct
+{
+	unsigned int	nbr_ant;
+	unsigned int	nbr_room;
+	struct ant_struct *next;
+} ant_s;
+
 typedef struct room_struct {
 	char *name;
+	bool enter_in_room;
 	int nb_way;
 	struct room_struct **next;
 } room_s;
