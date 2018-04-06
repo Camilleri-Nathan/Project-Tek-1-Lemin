@@ -13,7 +13,11 @@
 
 room_s	*link_path(room_s *room, room_s **copy, info_s *info)
 {
-	room = copy[0];
+	int array = 0;
+
+	while (my_strncmp(info->start, copy[array]->name, my_strlen(info->start)) != 1)
+		array += 1;
+	room = copy[array];
 	link_room(info, room, copy);
 	if (test_link_first(info)) {
 		info->exit = -1;
