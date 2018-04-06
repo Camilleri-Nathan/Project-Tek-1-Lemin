@@ -53,7 +53,7 @@ static int	check_nb_ants(info_s *info)
 		if (info->path[index][0] == '#' && info->path[index][1] == '#')
 			return (0);
 		if ((my_strcmp(info->path[index], "##start") == 0) ||
-		   (space = counter_space(info->path[index])) != 2)
+		(space = counter_space(info->path[index])) != 2)
 			return (84);
 		index++;
 	}
@@ -85,9 +85,9 @@ int	test_error(info_s *info)
 	int check_after = 0;
 	int check_type = 0;
 
-	check_start = check_nb_start(info);
-	check_end = check_nb_end(info);
-	if (check_start != 1 || check_end != 1) {
+	if (info->ants == 0 ||
+	(check_start = check_nb_start(info)) != 1 ||
+	(check_end = check_nb_end(info)) == -1) {
 		info->exit = -1;
 		return (84);
 	}

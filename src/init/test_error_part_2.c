@@ -96,10 +96,9 @@ static int	check_space_end_av(info_s *info, int *index)
 					return (-1);
 				nbr_tunnel++;
 			}
-		} else {
-			if (check_three_av(info->path[*index]) == -1)
-				return (-1);
 		}
+		else if (check_three_av(info->path[*index]) == -1)
+			return (-1);
 		(*index)++;
 	}
 	return (nbr_tunnel);
