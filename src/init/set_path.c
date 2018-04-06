@@ -15,6 +15,10 @@ room_s	*link_path(room_s *room, room_s **copy, info_s *info)
 {
 	room = copy[0];
 	link_room(info, room, copy);
+	if (test_link_first(info)) {
+		info->exit = -1;
+		return (room);
+	}
 	set_path(room, copy, info);
 	return (room);
 }

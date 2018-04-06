@@ -13,6 +13,24 @@
 
 #include <stdio.h>
 
+int	test_link_first(info_s *info)
+{
+	int array = 0;
+
+	while (info->path[array] != NULL) {
+		if (find_arrow(info->path[array])) {
+			if (my_strncmp(info->start,
+			take_first(info->path[array]), my_strlen(info->start)))
+				return (0);
+			if (my_strncmp(info->start,
+			take_second(info->path[array]), my_strlen(info->start)))
+				return (0);
+		}
+		array += 1;
+	}
+	return (1);
+}
+
 int	check_after_start_and_end(info_s *info)
 {
 	int index = 0;

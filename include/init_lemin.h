@@ -42,6 +42,7 @@ void	add_link(char *first, char *second, room_s *room, room_s *copy);
 
 // **** error_file ******
 
+int	test_link_first(info_s *info);
 int	test_error(info_s *info);
 int	check_after_start_and_end(info_s *info);
 int	check_nb_av_and_type(info_s *info);
