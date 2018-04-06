@@ -12,16 +12,14 @@
 #include "tools_lemin.h"
 #include "struct.h"
 
-int	counter_room(ant_s *all_ant, path_s path)
+static int	counter_room(path_s path)
 {
 	static unsigned int	save = 0;
-	ant_s			*tmp = all_ant;
 	unsigned int		room = 0;
 
-	while (tmp != NULL && path.prev[room + 1] != NULL &&
+	while (path.prev[room + 1] != NULL &&
 	path.prev[room + 1]->enter_in_room == true) {
 		room++;
-		tmp = tmp->next;
 	}
 	room++;
 	if (save < room)
@@ -34,11 +32,11 @@ void	nominate_room(ant_s *all_ant, path_s path)
 	ant_s	*tmp = all_ant;
 	unsigned int	room = 0;
 
-	room = counter_room(all_ant, path);
+	room = counter_room(path);
 	while (tmp != NULL && room != 0) {
 		tmp->nbr_room = room;
 		if (path.prev[tmp->nbr_room] != NULL)
-			path.prev[tmp->nbr_room]->enter_in_room = true;
+		path.prev[tmp->nbr_room]->enter_in_room = true;
 		room--;
 		tmp = tmp->next;
 	}

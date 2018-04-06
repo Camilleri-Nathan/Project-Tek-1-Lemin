@@ -85,7 +85,6 @@ int	test_error(info_s *info)
 	int check_after = 0;
 	int check_type = 0;
 
-	
 	if (info->ants == 0 ||
 	(check_start = check_nb_start(info)) != 1 ||
 	(check_end = check_nb_end(info)) == -1) {
