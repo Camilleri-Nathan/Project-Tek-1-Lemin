@@ -42,7 +42,6 @@ static int	check_nb_end(info_s *info)
 static int	check_nb_ants(info_s *info)
 {
 	int index = 0;
-	int space = 0;
 
 	while (my_strcmp(info->path[index], "##start")) {
 		while (info->path[index][0] == '#')
@@ -52,8 +51,7 @@ static int	check_nb_ants(info_s *info)
 		index++;
 		if (info->path[index][0] == '#' && info->path[index][1] == '#')
 			return (0);
-		if ((my_strcmp(info->path[index], "##start") == 0) ||
-		(space = counter_space(info->path[index])) != 2)
+		if (my_strcmp(info->path[index], "##start") != 0)
 			return (84);
 		index++;
 	}

@@ -84,7 +84,7 @@ static int	check_space_av(info_s *info, int *index)
 	while (info->path[*index] != NULL &&
 	my_strcmp(info->path[*index], "##end")) {
 		space = counter_space(info->path[*index]);
-		if (space != 2)
+		if (space > 2)
 			return (84);
 		else {
 			if (check_three_av(info->path[*index]) == -1)
@@ -106,7 +106,7 @@ static int	check_space_end_av(info_s *info, int *index)
 	while (info->path[*index] != NULL) {
 		space = counter_space(info->path[*index]);
 		if (space != -1) {
-			if (space == 1 || space > 3)
+			if (space == 1 || space > 2)
 				return (-1);
 			else if (space == 0 && (hyphen = counter_hyphen(
 						info->path[*index])) != -1) {
