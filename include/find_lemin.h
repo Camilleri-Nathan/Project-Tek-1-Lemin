@@ -17,6 +17,7 @@ room_s	*link_path_way(path_s *path, room_s *room, info_s *info);
 room_s	**add_array(room_s *room, room_s **array);
 int	test_over(room_s *room, room_s **prev, room_s **over, int array);
 int	nb_array(room_s **array);
+room_s	*link_path_way_2(path_s *path, info_s *info);
 
 //****check_end*******
 

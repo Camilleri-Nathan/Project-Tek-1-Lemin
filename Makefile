@@ -43,6 +43,7 @@ SRCS		=	tools/my_strncmp.c		\
 			init/test_error_part_3.c	\
 			init/counter.c			\
 			find_way/find_way.c		\
+			find_way/find_way_2.c		\
 			send_ants/send_ant.c		\
 			send_ants/check_end.c		\
 			send_ants/cross_in_room.c	\
