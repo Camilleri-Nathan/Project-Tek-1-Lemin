@@ -31,28 +31,6 @@ int	test_link_first(info_s *info)
 	return (1);
 }
 
-int	check_after_start_and_end(info_s *info)
-{
-	int index = 0;
-
-	while (info->path[index] != NULL &&
-	my_strcmp(info->path[index], "##start"))
-		index++;
-	index++;
-	if (info->path[index][0] == '#') {
-		return (84);
-	}
-	while (info->path[index] != NULL &&
-	my_strcmp(info->path[index], "##end")){
-		index++;
-	}
-	index++;
-	if (info->path[index] == NULL || info->path[index][0] == '#' ||
-	info->path[index][0] == '\0')
-		return (84);
-	return (0);
-}
-
 static int	check_three_av(char *str)
 {
 	int index = 0;

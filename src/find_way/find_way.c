@@ -21,7 +21,7 @@ path_s	find_way(room_s *room, info_s *info)
 	path.array = 0;
 	while (1) {
 		room = link_path_way(&path, room, info);
-		if(info->exit == -1)
+		if (info->exit == -1)
 			return (path);
 		if (my_strncmp(info->end, room->name, my_strlen(info->end)))
 			break;
@@ -48,7 +48,8 @@ room_s	*link_path_way(path_s *path, room_s *room, info_s *info)
 		path->array += 1;
 	}
 	if (path->over[0] != NULL)
-		if (my_strncmp(info->start, path->over[nb_array(path->over) - 1]->name,
+		if (my_strncmp(info->start,
+			path->over[nb_array(path->over) - 1]->name,
 			my_strlen(info->start)))
 			info->exit = -1;
 	return (room);
