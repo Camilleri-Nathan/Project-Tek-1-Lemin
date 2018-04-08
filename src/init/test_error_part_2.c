@@ -13,24 +13,6 @@
 
 #include <stdio.h>
 
-int	test_link_first(info_s *info)
-{
-	int array = 0;
-
-	while (info->path[array] != NULL) {
-		if (find_arrow(info->path[array])) {
-			if (my_strncmp(info->start,
-			take_first(info->path[array]), my_strlen(info->start)))
-				return (0);
-			if (my_strncmp(info->start,
-			take_second(info->path[array]), my_strlen(info->start)))
-				return (0);
-		}
-		array += 1;
-	}
-	return (1);
-}
-
 static int	check_three_av(char *str)
 {
 	int index = 0;
@@ -75,6 +57,19 @@ static int	check_space_av(info_s *info, int *index)
 	return (0);
 }
 
+static int	check_space_and_hyphen(char *path, int *nbr_tunnel,
+				int space, int *hyphen)
+{
+	if (space == 1 || space > 2)
+		return (-1);
+	else if (space == 0 && (*hyphen = counter_hyphen(path)) != -1) {
+		if (*hyphen != 1)
+			return (-1);
+		(*nbr_tunnel)++;
+	}
+	return (0);
+}
+
 static int	check_space_end_av(info_s *info, int *index)
 {
 	int nbr_tunnel = 0;
@@ -84,14 +79,9 @@ static int	check_space_end_av(info_s *info, int *index)
 	while (info->path[*index] != NULL) {
 		space = counter_space(info->path[*index]);
 		if (space != -1) {
-			if (space == 1 || space > 2)
+			if (check_space_and_hyphen(info->path[*index],
+			&nbr_tunnel, space, &hyphen) == -1)
 				return (-1);
-			else if (space == 0 && (hyphen = counter_hyphen(
-						info->path[*index])) != -1) {
-				if (hyphen != 1)
-					return (-1);
-				nbr_tunnel++;
-			}
 		}
 		else if (check_three_av(info->path[*index]) == -1)
 			return (-1);

@@ -22,6 +22,7 @@ room_s	*link_path_way_2(path_s *path, info_s *info);
 //****check_end*******
 
 void	check_end(ant_s **all_ant, path_s path);
+int	test_link_first(info_s *info);
 
 //****cross_in_room*******
 void	nominate_room(ant_s *all_ant, path_s path);
