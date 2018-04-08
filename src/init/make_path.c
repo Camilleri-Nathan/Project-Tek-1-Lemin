@@ -95,8 +95,7 @@ char	**make_copy(char **path)
 	int array = 0;
 	int carac = 0;
 
-	while (path[array] != NULL)
-		array += 1;
+	while (path[array++] != NULL);
 	copy = malloc(sizeof(char *) * (array + 1));
 	array = 0;
 	while (path[array] != NULL) {
