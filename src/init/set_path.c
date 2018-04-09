@@ -20,7 +20,7 @@ room_s	*link_path(room_s *room, room_s **copy, info_s *info)
 		array += 1;
 	room = copy[array];
 	link_room(info, room, copy);
-	if (test_link_first(info)) {
+	if (test_link_first(info) || room->next[0] == NULL) {
 		info->exit = -1;
 		return (room);
 	}
@@ -52,7 +52,7 @@ void	add_link(char *first, char *second, room_s *room, room_s *copy)
 {
 	if (my_strncmp(first, room->name, my_strlen(room->name + 1))) {
 		if (my_strncmp(second, copy->name,
-			my_strlen(room->name + 1)))
+		my_strlen(room->name + 1)))
 			make_path(room, copy);
 	}
 }
