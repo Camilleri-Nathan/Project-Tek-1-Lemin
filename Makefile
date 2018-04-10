@@ -60,7 +60,7 @@ endif
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) -o $(NAME) $(OBJS) -lncurses
+	$(CC) -o $(NAME) $(OBJS)
 
 all:	$(NAME)
 
