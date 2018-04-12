@@ -56,7 +56,7 @@ int	counter_hyphen(char *str)
 	while (str[index] != '\0') {
 		if (str[index] == '-') {
 			if (verify_tunnel(str) == -1)
-				return (-1);
+				return (-2);
 			hyphen++;
 		}
 		index++;
