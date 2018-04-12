@@ -17,7 +17,15 @@ void	set_path(room_s *room, room_s **copy, info_s *info)
 	path_s path;
 
 	path.prev = malloc(sizeof(room_s *) * 2);
+	if (path.prev == NULL) {
+		info->exit = -1;
+		return;
+	}
 	path.over = malloc(sizeof(room_s *) * 2);
+	if (path.over == NULL) {
+		info->exit = -1;
+		return;
+	}
 	path.over[0] = NULL;
 	path.prev[0] = NULL;
 	path.array = 0;
@@ -55,8 +63,12 @@ void	save_path(info_s *info, char *line)
 	int array = 0;
 	int carac = 0;
 
-	info->path = realloc_path(info->path, &array);
+	info->path = realloc_path(info->path, &array, info);
 	info->path[array] = malloc(sizeof(char) * (my_strlen(line) + 1));
+	if (info->path[array] == NULL) {
+		info->exit = -1;
+		return;
+	}
 	while (line[carac] != '\0') {
 		info->path[array][carac] = line[carac];
 		carac += 1;
@@ -65,18 +77,28 @@ void	save_path(info_s *info, char *line)
 	info->path[array + 1] = NULL;
 }
 
-char	**realloc_path(char **path, int *array)
+char	**realloc_path(char **path, int *array, info_s *info)
 {
-	char **copy = make_copy(path);
+	char **copy = make_copy(path, info);
 	int tab = 0;
 	int carac = 0;
 
+	if (info->exit == -1)
+		return (NULL);
 	while (path[*array] != NULL) {
 		*array += 1;
 	}
 	path = malloc(sizeof(char *) * (*array + 2));
+	if (path == NULL) {
+		info->exit = -1;
+		return (NULL);
+	}
 	while (tab != *array) {
 		path[tab] = malloc(sizeof(char) * (my_strlen(copy[tab]) + 1));
+		if (path[tab] == NULL) {
+			info->exit = -1;
+			return (NULL);
+		}
 		while (copy[tab][carac] != '\0') {
 			path[tab][carac] = copy[tab][carac];
 			carac += 1;
@@ -89,7 +111,7 @@ char	**realloc_path(char **path, int *array)
 	return (path);
 }
 
-char	**make_copy(char **path)
+char	**make_copy(char **path, info_s *info)
 {
 	char **copy = NULL;
 	int array = 0;
@@ -97,10 +119,18 @@ char	**make_copy(char **path)
 
 	while (path[array++] != NULL);
 	copy = malloc(sizeof(char *) * (array + 1));
+	if (copy == NULL) {
+		info->exit = -1;
+		return (NULL);
+	}
 	array = 0;
 	while (path[array] != NULL) {
 		copy[array] = malloc(sizeof(char) *
 		my_strlen(path[array]) + 1);
+		if (copy[array] == NULL) {
+			info->exit = -1;
+			return (NULL);
+		}
 		while (path[array][carac] != '\0') {
 			copy[array][carac] = path[array][carac];
 			carac += 1;

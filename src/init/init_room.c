@@ -34,13 +34,15 @@ room_s	*set_room(room_s *room, info_s *info)
 		return (NULL);
 	}
 	copy = make_room(info);
+	if (info->exit == -1)
+		return (NULL);
 	room = link_path(room, copy, info);
 	return (room);
 }
 
 room_s	**make_room(info_s *info)
 {
-	room_s **copy;
+	room_s **copy = NULL;
 	int array = 0;
 	int tab = 1;
 
@@ -52,6 +54,10 @@ room_s	**make_room(info_s *info)
 	}
 	tab = 1;
 	copy = malloc(sizeof(room_s) * (array + 2));
+	if (copy == NULL) {
+		info->exit = -1;
+		return (NULL);
+	}
 	array = 0;
 	while (info->path[tab] != NULL) {
 		if (find_arrow(info->path[tab]) == 0
@@ -99,6 +105,10 @@ char	*fill_point(info_s *info)
 	my_putchar('\n');
 	save_path(info, line);
 	point = malloc(sizeof(char) * ((my_strlen(take_name(line))) + 1));
+	if (point == NULL) {
+		info->exit = -1;
+		return (NULL);
+	}
 	while (line[carac] != ' ' && line[carac] != '\0') {
 		point[carac] = line[carac];
 		carac += 1;
