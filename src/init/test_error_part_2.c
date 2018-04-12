@@ -19,7 +19,7 @@ static int	check_three_av(char *str)
 
 	if (str[0] == '#')
 		return (1);
-	while (str[index] != ' ')
+	while (str[index] != '\0' && str[index] != ' ')
 		index++;
 	index++;
 	while (str[index] != ' ') {
