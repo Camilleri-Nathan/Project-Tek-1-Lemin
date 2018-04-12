@@ -1,0 +1,15 @@
+#ants
+19
+##start
+2 0 1
+1 0 2
+3 0 3
+monster 0 4
+##end
+5 0 5
+#link
+2-1
+2-3
+3-monster
+monster-5
+3-1

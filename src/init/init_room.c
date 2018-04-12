@@ -51,8 +51,8 @@ room_s	**make_room(info_s *info)
 		tab += 1;
 	}
 	tab = 1;
-	array = 0;
 	copy = malloc(sizeof(room_s) * (array + 2));
+	array = 0;
 	while (info->path[tab] != NULL) {
 		if (find_arrow(info->path[tab]) == 0
 		&& info->path[tab][0] != '#') {
