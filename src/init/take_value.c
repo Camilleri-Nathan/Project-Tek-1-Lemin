@@ -11,20 +11,12 @@
 #include "get_next_line.h"
 #include <stdlib.h>
 
-int	init_room(info_s *info)
+static int	suit_of_init_room(char *line, int *put, info_s *info)
 {
-	char *line = NULL;
-	int put = 0;
-
-	line = get_next_line(0);
-	if (line == NULL) {
-		info->exit = -1;
-		return (84);
-	}
 	while (line != NULL) {
-		if (put == 0 && find_arrow(line)) {
+		if (*put == 0 && find_arrow(line)) {
 			my_putstr(1, "#tunnels\n");
-			put = 1;
+			*put = 1;
 		}
 		if (line[0] == '#') {
 			save_path(info, line);
@@ -38,6 +30,21 @@ int	init_room(info_s *info)
 		}
 		line = get_next_line(0);
 	}
+	return (0);
+}
+
+int	init_room(info_s *info)
+{
+	char *line = NULL;
+	int put = 0;
+
+	line = get_next_line(0);
+	if (line == NULL) {
+		info->exit = -1;
+		return (84);
+	}
+	if (suit_of_init_room(line, &put, info) == 84)
+		return (84);
 	return (0);
 }
 

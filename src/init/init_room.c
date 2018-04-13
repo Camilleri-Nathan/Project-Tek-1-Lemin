@@ -23,10 +23,7 @@ room_s	*set_room(room_s *room, info_s *info)
 		info->exit = -1;
 		return (NULL);
 	}
-	my_putstr(1, "#number_of_ants\n");
-	my_put_nbr(info->ants);
-	my_putchar('\n');
-	my_putstr(1, "#rooms\n");
+	print_message(info);
 	if (init_room(info) == 84)
 		return (NULL);
 	if (test_error(info) == 84) {
@@ -59,15 +56,7 @@ room_s	**make_room(info_s *info)
 		return (NULL);
 	}
 	array = 0;
-	while (info->path[tab] != NULL) {
-		if (find_arrow(info->path[tab]) == 0
-		&& info->path[tab][0] != '#') {
-			copy[array] = add_room(info->path[tab]);
-			array += 1;
-		}
-		tab += 1;
-	}
-	copy[array] = NULL;
+	copy_array_in_make_room(info, tab, array, copy);
 	return (copy);
 }
 
@@ -109,11 +98,7 @@ char	*fill_point(info_s *info)
 		info->exit = -1;
 		return (NULL);
 	}
-	while (line[carac] != ' ' && line[carac] != '\0') {
-		point[carac] = line[carac];
-		carac += 1;
-	}
-	point[carac] = '\0';
+	end_of_fill_point(line, &carac, point);
 	return (point);
 }
 

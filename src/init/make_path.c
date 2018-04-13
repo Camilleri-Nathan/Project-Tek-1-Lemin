@@ -21,8 +21,7 @@ void	set_path(room_s *room, room_s **copy, info_s *info)
 		info->exit = -1;
 		return;
 	}
-	path.over = malloc(sizeof(room_s *) * 2);
-	if (path.over == NULL) {
+	if ((path.over = malloc(sizeof(room_s *) * 2)) == NULL) {
 		info->exit = -1;
 		return;
 	}
@@ -38,7 +37,7 @@ void	set_path(room_s *room, room_s **copy, info_s *info)
 }
 
 room_s	*link_path_create(path_s *path, room_s *room, room_s **copy,
-info_s *info)
+			info_s *info)
 {
 	while (1) {
 		if (room->next[path->array] != NULL
@@ -85,9 +84,8 @@ char	**realloc_path(char **path, int *array, info_s *info)
 
 	if (info->exit == -1)
 		return (NULL);
-	while (path[*array] != NULL) {
+	while (path[*array] != NULL)
 		*array += 1;
-	}
 	path = malloc(sizeof(char *) * (*array + 2));
 	if (path == NULL) {
 		info->exit = -1;

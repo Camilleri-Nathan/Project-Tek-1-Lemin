@@ -15,6 +15,10 @@ int	set_ants(info_s *info);
 int	set_point(info_s *info, char *line);
 char	*fill_point(info_s *info);
 room_s	**make_room(info_s *info);
+void	print_message(info_s *info);
+void	copy_array_in_make_room(info_s *info, int tab, int array,
+				room_s **copy);
+void	end_of_fill_point(char *line, int *caract, char *point);
 
 // ___ take_value.c ___
 

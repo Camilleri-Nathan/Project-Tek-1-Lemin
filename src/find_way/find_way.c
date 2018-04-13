@@ -34,7 +34,7 @@ room_s	*link_path_way(path_s *path, room_s *room, info_s *info)
 {
 	while (1) {
 		if (room->next[path->array] != NULL
-		    && test_over(room, path->prev, path->over, path->array) == 0) {
+		&& test_over(room, path->prev, path->over, path->array) == 0) {
 			path->prev = add_array(room, path->prev);
 			room = room->next[path->array];
 			break;
@@ -48,8 +48,6 @@ room_s	*link_path_way(path_s *path, room_s *room, info_s *info)
 				room = path->prev[nb_array(path->prev) - 1];
 				path->prev[nb_array(path->prev) - 1] = NULL;
 			}
-			//room = path->prev[nb_array(path->prev) - 1];
-			//path->prev[nb_array(path->prev) - 1] = NULL;
 			break;
 		}
 		path->array += 1;

@@ -35,6 +35,8 @@ SRCS		=	tools/my_strncmp.c		\
 			tools/useful.c			\
 			tools/my_strcmp.c		\
 			init/init_room.c		\
+			init/init_room_2.c		\
+			init/print_message.c		\
 			init/take_value.c		\
 			init/make_path.c		\
 			init/set_path.c			\
