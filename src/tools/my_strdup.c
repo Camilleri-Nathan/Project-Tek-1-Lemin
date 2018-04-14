@@ -10,20 +10,20 @@
 
 char	*my_strdup(char const *str)
 {
-	char	*cpy;
-	int	str_len;
+	char	*copy;
+	int	strlen_2;
 	int	index;
 
 	index = 0;
-	str_len = my_strlen(str);
-	cpy = malloc(sizeof(char) * str_len + 1);
-	if (cpy == NULL) {
+	strlen_2 = my_strlen(str);
+	copy = malloc(sizeof(char) * stren_2 + 1);
+	if (copy == NULL) {
 		return (NULL);
 	}
 	while (str[index] != '\0') {
-		cpy[index] = str[index];
+		copy[index] = str[index];
 		index = index + 1;
 	}
-	cpy[index] = '\0';
-	return (cpy);
+	copy[index] = '\0';
+	return (copy);
 }
