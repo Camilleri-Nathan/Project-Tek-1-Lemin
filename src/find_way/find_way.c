@@ -32,19 +32,7 @@ path_s	find_way(room_s *room, info_s *info)
 
 room_s	*link_path_way(path_s *path, room_s *room, info_s *info)
 {
-	while (1) {
-		if (room->next[path->array] != NULL
-		&& test_over(room, path->prev, path->over, path->array) == 0) {
-			path->prev = add_array(room, path->prev);
-			room = room->next[path->array];
-			break;
-		}
-		else if (room->next[path->array] == NULL) {
-			link_path_way_3(path, room);
-			break;
-		}
-		path->array += 1;
-	}
+	link_path_way_3(path, room);
 	link_path_way_2(path, info);
 	return (room);
 }

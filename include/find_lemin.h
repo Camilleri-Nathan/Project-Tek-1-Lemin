@@ -18,7 +18,7 @@ room_s	**add_array(room_s *room, room_s **array);
 int	test_over(room_s *room, room_s **prev, room_s **over, int array);
 int	nb_array(room_s **array);
 room_s	*link_path_way_2(path_s *path, info_s *info);
-void 	link_path_way_3(path_s *path, room_s *room);
+void	link_path_way_3(path_s *path, room_s *room);
 
 //****check_end*******
 
@@ -28,5 +28,7 @@ int	test_link_first(info_s *info);
 //****cross_in_room*******
 void	nominate_room(ant_s *all_ant, path_s path);
 void	display_ant_in_room(ant_s *all_ant, path_s path, info_s info);
+
+
 
 #endif		/* FIND_LEMIN_H_ */
