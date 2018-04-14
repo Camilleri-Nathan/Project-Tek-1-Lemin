@@ -80,29 +80,18 @@ char	**realloc_path(char **path, int *array, info_s *info)
 {
 	char **copy = make_copy(path, info);
 	int tab = 0;
-	int carac = 0;
 
 	if (info->exit == -1)
 		return (NULL);
 	while (path[*array] != NULL)
 		*array += 1;
 	path = malloc(sizeof(char *) * (*array + 2));
-	if (path == NULL) {
-		info->exit = -1;
-		return (NULL);
-	}
+	if (path == NULL)
+		return (info->exit = -1, NULL);
 	while (tab != *array) {
-		path[tab] = malloc(sizeof(char) * (my_strlen(copy[tab]) + 1));
-		if (path[tab] == NULL) {
-			info->exit = -1;
-			return (NULL);
-		}
-		while (copy[tab][carac] != '\0') {
-			path[tab][carac] = copy[tab][carac];
-			carac += 1;
-		}
-		path[tab][carac] = '\0';
-		carac = 0;
+		path[tab] = my_strdup(copy[tab]);
+		if (path[tab] == NULL)
+			return (info->exit = -1, NULL);
 		tab += 1;
 	}
 	free(copy);
@@ -113,28 +102,17 @@ char	**make_copy(char **path, info_s *info)
 {
 	char **copy = NULL;
 	int array = 0;
-	int carac = 0;
 
 	while (path[array++] != NULL);
-	copy = malloc(sizeof(char *) * (array + 1));
-	if (copy == NULL) {
-		info->exit = -1;
-		return (NULL);
-	}
+	copy = malloc(sizeof(char*) * (array + 1));
+	printf("test\n");
+	if (copy == NULL)
+		return (info->exit = -1, NULL);
 	array = 0;
 	while (path[array] != NULL) {
-		copy[array] = malloc(sizeof(char) *
-		my_strlen(path[array]) + 1);
-		if (copy[array] == NULL) {
-			info->exit = -1;
-			return (NULL);
-		}
-		while (path[array][carac] != '\0') {
-			copy[array][carac] = path[array][carac];
-			carac += 1;
-		}
-		copy[array][carac] = '\0';
-		carac = 0;
+		copy[array] = my_strdup(path[array]);
+		if (copy[array] == NULL)
+			return (info->exit = -1, NULL);
 		array += 1;
 	}
 	copy[array] = NULL;

@@ -32,6 +32,7 @@ SRCS		=	tools/my_strncmp.c		\
 			tools/my_realloc_strcat.c	\
 			tools/my_put_nbr.c		\
 			tools/my_putchar.c		\
+			tools/my_strdup.c		\
 			tools/useful.c			\
 			tools/my_strcmp.c		\
 			init/init_room.c		\

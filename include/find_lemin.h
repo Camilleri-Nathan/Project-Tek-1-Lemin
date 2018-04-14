@@ -20,7 +20,7 @@ int	nb_array(room_s **array);
 room_s	*link_path_way_2(path_s *path, info_s *info);
 room_s *link_path_way_3(path_s *path, room_s *room);
 room_s *link_path_way_4(path_s *path, room_s *room);
-
+char	*my_strdup(char const *str);
 
 //****check_end*******
 
