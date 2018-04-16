@@ -105,7 +105,6 @@ char	**make_copy(char **path, info_s *info)
 
 	while (path[array++] != NULL);
 	copy = malloc(sizeof(char*) * (array + 1));
-	printf("test\n");
 	if (copy == NULL)
 		return (info->exit = -1, NULL);
 	array = 0;
