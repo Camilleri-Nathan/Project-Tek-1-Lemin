@@ -12,3 +12,9 @@ The project contains a series of test maps.
 Usage: ./lem_in < map 
 
 Valid Map:
+
+![alt text](https://raw.githubusercontent.com/Camilleri-Nathan/Project-Tek-1-Lemin/master/Lemin_Map_Valid.png)
+
+Invalid Map:
+
+![alt text](https://raw.githubusercontent.com/Camilleri-Nathan/Project-Tek-1-Lemin/master/map_invalid.png)
